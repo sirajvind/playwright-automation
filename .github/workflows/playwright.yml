@@ -20,6 +20,7 @@ jobs:
     - name: Set environment variables from JSON
       run: |
         echo "${{ secrets.SECRETS_JSON }}" > secrets.json
+        cat secrets.json | jq empty
         cat secrets.json | jq -r 'to_entries | .[] | "echo \(.key)=\(.value) >> $GITHUB_ENV"' | sh
     - name: Run Playwright tests
       run: npx playwright test
