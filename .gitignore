@@ -18,6 +18,8 @@ Thumbs.db
 .env
 .env.local
 .env.*.local
+.nprmc
+secrets.json
 
 # Playwright Specific
 playwright-report/
