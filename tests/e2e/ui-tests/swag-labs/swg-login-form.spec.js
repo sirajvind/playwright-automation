@@ -1,8 +1,8 @@
 import { test } from '@playwright/test';
 import { SwagLabsDevPage } from '../../../pages/swag-labs-dev-page';
-import loadEnv from '../../../helpers/loadEnv';
+import dotenv from 'dotenv';
 
-loadEnv();
+dotenv.config({ path: '.env' });
 
 test.beforeEach('goto baseURL', async ({ page }) => {
     const swagLabsBaseURL = new SwagLabsDevPage(page);
