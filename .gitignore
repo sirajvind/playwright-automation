@@ -32,6 +32,11 @@ playwright/.cache/
 cypress/screenshots/
 cypress/videos/
 
+# Cucumber Specific
+.cucumber-cache/
+cucumber-report.html
+cucumber-report.json
+
 # IDE and Editor Files
 .idea/
 .vscode/
