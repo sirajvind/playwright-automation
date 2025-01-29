@@ -9,7 +9,7 @@
     "test:head": "npx playwright test --headed",
     "test:debug": "npx playwright test --debug",
     "test:codegen": "npx playwright codegen",
-    "test:cucumber": "cucumber-js --config cucumber.json"
+    "test:cucumber": "cucumber-js --config cucumber.config.js --profile ci"
   },
   "keywords": [],
   "author": "",
