@@ -1,7 +1,9 @@
-const { Given, When, Then, Before, After } = require('@cucumber/cucumber');
+const { Given, When, Then, Before, After, setDefaultTimeout } = require('@cucumber/cucumber');
 const { chromium, expect } = require('@playwright/test');
 const MailsacPage = require('../pages/MailsacPage');
 const EmailGenerator = require('../utils/emailGenerator');
+
+setDefaultTimeout(30000);
 
 let browser, page, mailsacPage;
 const emailString = EmailGenerator.generateEmailString();
@@ -14,8 +16,13 @@ Before(async function() {
 });
 
 Given('User navigate to the Mailsac Homepage', async () => {
-    const title = await mailsacPage.navigate();
-    expect(title).toBe('Mailsac : Disposable Email Testing Platform');
+    try {
+        const title = await mailsacPage.navigate();
+        expect(title).toBe('Mailsac : Disposable Email Testing Platform');
+    } catch (error) {
+        console.error('Navigation failed:', error);
+        throw error;
+    }
 });
 
 When('User enter the Formatted String into the Mailbox Textbox', async () => {
@@ -33,5 +40,14 @@ Then('It should Display the correct Mailbox Address', async () => {
 });
 
 After(async function () {
-    await browser.close();
+    try {
+        if (browser) {
+            await browser.close();
+        }
+        if (page) {
+            await page.close();
+        }
+    } catch (error) {
+        console.error('Failed to close browser/page:', error);
+    }
 });

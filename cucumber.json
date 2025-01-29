@@ -10,13 +10,12 @@
             "snippetInterface": "async-await"
         },
         "format": [
-            [
-                "html",
-                "cucumber-report.html"
-            ],
-            "summary",
             "progress-bar",
-            "json:./cucumber-report.json"
-        ]
+            "html:cucumber-report.html"
+        ],
+        "worldParameters": {
+            "timeout": 30000
+            
+        }
     }
 }
