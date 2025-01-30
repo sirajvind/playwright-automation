@@ -8,16 +8,21 @@
     "test:ui": "npx playwright test --ui",
     "test:head": "npx playwright test --headed",
     "test:debug": "npx playwright test --debug",
-    "test:codegen": "npx playwright codegen"
+    "test:codegen": "npx playwright codegen",
+    "test:cucumber": "cucumber-js --config cucumber.config.js --profile ci"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.49.0",
-    "@types/node": "^22.10.1"
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.1",
+    "ts-node": "^10.9.2"
   },
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "@cucumber/cucumber": "^11.1.1",
+    "cucumber": "^6.0.7",
+    "dotenv": "^16.4.5",
+    "playwright": "^1.49.1"
   }
 }
