@@ -25,6 +25,10 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
+    {
+      name: 'Microsoft Edge',
+      use: { ...devices['Desktop Edge'] },
+    },
   ],
   /* Run your local dev server before starting the tests */
   // webServer: {
