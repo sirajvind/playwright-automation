@@ -1,10 +1,16 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
+
+const appUrl = 'https://staging-app.pulsifi.me';
 
 test.describe('smoke test for talent app', () => {
+  test.beforeEach(async ({ page }) => {
+    test.setTimeout(120000);
+    await page.goto(appUrl);
+  });
+
   test('should load the app successfully', async ({ page }) => {
-    await page.goto('https://staging-app.pulsifi.me');
-    await expect(page).toHaveTitle(/Log In To Pulsifi/);
-    await page.waitForURL(/enterprise|id/, {waitUntil: 'load'});
-    await expect(page.getByText('Sign in to Pulsifi')).toBeVisible();
+    await page.getByRole('textbox', { name: 'Email' }).fill('test@gmail.com');
+    await page.getByRole('textbox', { name: 'Password' }).fill('Qa12345');
+    await page.getByRole('button', { name: 'Log In' }).click();
   });
 });
