@@ -7,17 +7,9 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 5 : undefined,
   reporter: 'list',
-  timeout: 120000,
-  expect: {
-    timeout: process.env.CI ? 35 * 1000 : 20 * 1000,
-  },
 
   use: {
     trace: 'on',
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
-    navigationTimeout: 60 * 1000,
-    actionTimeout: process.env.CI ? 35 * 1000 : 20 * 1000,
   },
   projects: [
     {

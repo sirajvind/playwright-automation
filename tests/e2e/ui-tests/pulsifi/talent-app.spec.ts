@@ -6,7 +6,7 @@ test.describe('smoke test for talent app', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(appUrl);
     await page.waitForURL(/enterprise|id/, {waitUntil: 'load'});
-    await page.waitForTimeout(1 * 65 * 1000);
+    await page.waitForTimeout(2 * 60 * 1000);
   });
 
   test('should load the app successfully', async ({ page }) => {
