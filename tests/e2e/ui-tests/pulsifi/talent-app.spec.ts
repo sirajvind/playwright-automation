@@ -9,10 +9,10 @@ test.describe('smoke test for talent app', () => {
   });
 
   test('should load the app successfully', async ({ page }) => {
-    await page.waitForTimeout(1 * 60 * 1000); // Wait for 1 minute to ensure the app is fully loaded
-    await page.getByPlaceholder('yours@example.com').fill('test1@gmail.com');
-    await page.getByPlaceholder('your password').fill('Qa12345');
-    await page.getByLabel('Log In').click();
+    await page.waitForTimeout(30 * 1000);
+    await page.getByRole('textbox', { name: 'Email' }).fill('test2@gmail.com');
+    await page.getByRole('textbox', { name: 'Password' }).fill('Qa12345');
+    await page.getByRole('button', { name: 'Log In' }).click();
 
   });
 });
