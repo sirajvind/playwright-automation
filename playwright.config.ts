@@ -14,10 +14,6 @@ export default defineConfig({
 
   use: {
     trace: 'on',
-    headless: true,
-    bypassCSP: true,
-    javaScriptEnabled: true,
-    ignoreHTTPSErrors: true,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     navigationTimeout: 60 * 1000,
